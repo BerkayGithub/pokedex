@@ -15,11 +15,21 @@ class PokelistItem extends StatelessWidget {
       elevation: 3,
       shadowColor: Colors.white,
       color: Colors.red.shade200,
-      child: Column(
-        children: [
-          Text(pokemon.name ?? "N/A", style: Constants.getPokemonTextStyle()),
-          Chip(label: Text(pokemon.type![0], style: Constants.getChipTextStyle()))
-        ],
+      child: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(pokemon.name ?? "N/A", style: Constants.getPokemonTextStyle()),
+            Chip(
+              label: Text(
+                pokemon.type![0],
+                style: Constants.getChipTextStyle(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
