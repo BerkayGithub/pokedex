@@ -33,7 +33,7 @@ class Constants{
     if(ScreenUtil().orientation == Orientation.portrait){
       return size.sp;
     }else{
-      return (size*1.25).sp;
+      return (size * 0.66).sp;
     }
   }
 }
