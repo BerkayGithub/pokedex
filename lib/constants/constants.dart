@@ -12,4 +12,19 @@ class Constants{
       fontSize: 48
     );
   }
+
+  static TextStyle getPokemonTextStyle(){
+    return const TextStyle(
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+        fontSize: 30
+    );
+  }
+
+  static TextStyle getChipTextStyle(){
+    return const TextStyle(
+        color: Colors.white,
+        fontSize: 20
+    );
+  }
 }
