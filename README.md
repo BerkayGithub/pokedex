@@ -17,13 +17,13 @@ samples, guidance on mobile development, and a full API reference.
 
 ### Libraries
 
--Cupertino Icons
+# Cupertino Icons
 This is an asset repo containing the default set of icon assets used by Flutter's Cupertino widgets.
 
 dependencies:
   cupertino_icons: ^<latest-version>
 
--Dio
+# Dio
 A powerful HTTP networking package for Dart/Flutter, makes api calls, supports Global configuration, Interceptors, FormData, Request cancellation, File uploading/downloading, Timeout, Custom adapters, Transformers, etc.
 
 dependencies:
@@ -36,25 +36,24 @@ void getHttp() async {
   print(response);
 }
 
--Flutter Screen Util
+# Flutter Screen Util
 A flutter plugin for adapting screen and font size.Let your UI display a reasonable layout on different screen sizes!
 
 Usage:
 dependencies:
   flutter:
     sdk: flutter
-  # add flutter_screenutil
   flutter_screenutil: ^{latest version}
 
 Add the following imports to your Dart code #
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
--Google Fonts
+# Google Fonts
 A Flutter package to use fonts from fonts.google.com.
 
 Text('This is Google Fonts', style: GoogleFonts.lato()),
 
--Cached Network Image
+# Cached Network Image
 A flutter library to show images from the internet and keep them in the cache directory.
 
 CachedNetworkImage(
