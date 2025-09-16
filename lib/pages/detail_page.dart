@@ -15,6 +15,14 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (ScreenUtil().orientation == Orientation.portrait) {
+      return buildPortraitScreen(context);
+    } else {
+      return buildLandscapeScreen(context);
+    }
+  }
+
+  Scaffold buildPortraitScreen(BuildContext context) {
     return Scaffold(
       backgroundColor: UIHelper.getColorFromType(pokemon.type![0]),
       body: SafeArea(
@@ -24,7 +32,7 @@ class DetailPage extends StatelessWidget {
             Padding(
               padding: UIHelper.getIconPadding(),
               child: IconButton(
-                iconSize: 18.w,
+                iconSize: 24.w,
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -46,20 +54,72 @@ class DetailPage extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    child: PokeInformation(pokemon: pokemon),
                     bottom: 0,
                     left: 0,
                     right: 0,
                     top: 0.12.sh,
+                    child: PokeInformation(pokemon: pokemon),
                   ),
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: CachedNetworkImage(
-                      imageUrl: pokemon.img ?? '',
-                      height: 0.25.sh,
-                      fit: BoxFit.fitHeight,
+                  Hero(
+                    tag: pokemon.id!,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: CachedNetworkImage(
+                        imageUrl: pokemon.img ?? '',
+                        height: 0.25.sh,
+                        fit: BoxFit.fitHeight,
+                      ),
                     ),
                   ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Scaffold buildLandscapeScreen(BuildContext context) {
+    return Scaffold(
+      backgroundColor: UIHelper.getColorFromType(pokemon.type![0]),
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: UIHelper.getIconPadding(),
+              child: IconButton(
+                iconSize: 18.w,
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                icon: Icon(Icons.arrow_back_ios),
+              ),
+            ),
+            Expanded(
+              child: Row(
+                children: [
+                  Flexible(
+                    flex: 2,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        PokemonTypeName(pokemon: pokemon),
+                        SizedBox(height: 20),
+                        Hero(
+                          tag: pokemon.id!,
+                          child: CachedNetworkImage(
+                            imageUrl: pokemon.img ?? '',
+                            height: 0.15.sw,
+                            fit: BoxFit.fitHeight,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(flex: 3 ,child: PokeInformation(pokemon: pokemon)),
                 ],
               ),
             ),

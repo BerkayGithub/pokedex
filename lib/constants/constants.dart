@@ -30,6 +30,14 @@ class Constants{
     );
   }
 
+  static TextStyle getPokemonInfoTextStyle2(){
+    return TextStyle(
+        color: Colors.black,
+        fontWeight: FontWeight.normal,
+        fontSize: _calculateFontSize(12)
+    );
+  }
+
   static TextStyle getChipTextStyle(){
     return TextStyle(
         color: Colors.white,
@@ -41,7 +49,7 @@ class Constants{
     if(ScreenUtil().orientation == Orientation.portrait){
       return size.sp;
     }else{
-      return (size * 0.66).sp;
+      return (size * 0.5).sp;
     }
   }
 }

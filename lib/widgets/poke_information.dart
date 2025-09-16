@@ -46,9 +46,9 @@ class PokeInformation extends StatelessWidget {
       children: [
         Text(label, style: Constants.getPokemonInfoTextStyle()),
         if (value is List && value.isNotEmpty)
-          Text(value.join(" , "))
+          Text(value.join(" , "), style: Constants.getPokemonInfoTextStyle2())
         else
-          Text(value),
+          Text(value, style: Constants.getPokemonInfoTextStyle2()),
       ],
     );
   }

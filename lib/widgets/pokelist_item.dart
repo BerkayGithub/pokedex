@@ -37,6 +37,9 @@ class PokelistItem extends StatelessWidget {
                 style: Constants.getPokemonTextStyle(),
               ),
               Chip(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50)
+                ),
                 label: Text(
                   pokemon.type![0],
                   style: Constants.getChipTextStyle(),
