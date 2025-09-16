@@ -59,8 +59,8 @@ class PokemonModel {
     spawnTime: json["spawn_time"],
     multipliers: json["multipliers"] == null ? null : List<double>.from(json["multipliers"].map((x) => x.toDouble())),
     weaknesses: json["weaknesses"] == null ? null : List<String>.from(json["weaknesses"].map((x) => x)),
-    prevEvolution: json["prevEvolution"] == null ? null : List<Evolution>.from(json["prev_evolution"].map((x) => Evolution.fromMap(x))),
-    nextEvolution: json["nextEvolution"] == null ? null : List<Evolution>.from(json["next_evolution"].map((x) => Evolution.fromMap(x))),
+    prevEvolution: json["prev_evolution"] == null ? null : List<Evolution>.from(json["prev_evolution"].map((x) => Evolution.fromMap(x))),
+    nextEvolution: json["next_evolution"] == null ? null : List<Evolution>.from(json["next_evolution"].map((x) => Evolution.fromMap(x))),
   );
 
   Map<String, dynamic> toMap() => {
@@ -102,4 +102,11 @@ class Evolution {
     "num": num,
     "name": name,
   };
+
+  @override
+  String toString() {
+    return '$name';
+  }
+
+
 }
